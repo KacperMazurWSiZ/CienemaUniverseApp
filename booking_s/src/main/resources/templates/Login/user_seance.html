@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>User Panel</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container" align="center">
+    <a href="/user_orders" class="btn btn-primary">Your Orders</a>
+    <a href="/user_seance" class="btn btn-primary">Seances List</a>
+    <a href="/logout" class="btn btn-primary">Logout</a>
+
+
+    <h1>Welcome <span th:text="${user_name}"></span></h1>
+    <h1 class="mt-4">Seances List</h1>
+    <table class="table table-bordered mt-4" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Movie title</th>
+            <th>Price</th>
+            <th>Seance type</th>
+            <th>Seance datetime</th>
+            <th>Room</th>
+            <th>Duration</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="seances : ${listSeances}">
+            <td th:text="${seances.movies.title}">Title</td>
+            <td th:text="${seances.price}">Price</td>
+            <td th:text="${seances.seance_type}">Type</td>
+            <td th:text="${seances.seance_datetime}">Date</td>
+            <td th:text="${seances.rooms.name_room}">Room</td>
+            <td th:text="${seances.movies.duration}">Duration</td>
+            <td>
+                <a class="btn btn-success" th:href="@{'/buy_ticket/' + ${seances.id_seance}}">Buy Ticket</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+
+</html>

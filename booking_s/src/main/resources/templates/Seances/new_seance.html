@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Add seance - cinema</title>
+</head>
+<body>
+<div align="center">
+    <h1>Add seance</h1><br>
+
+    <form action="" th:action="@{/save_seance}" th:object="${seances}" method="post">
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Movie
+                <td/>
+                <td>
+                    <select th:field="*{movies}">
+                        <option th:each="movie : ${listMovies}" th:value="${movie.id_movie}"
+                                th:text="${movie.title}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Name room
+                <td/>
+                <td>
+                    <select th:field="*{rooms}">
+                        <option th:each="room : ${listRooms}" th:value="${room.id_room}"
+                                th:text="${room.name_room}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td><input type="number" th:field="*{price}"/></td>
+            </tr>
+            <tr>
+                <td>Seance type:</td>
+                <td><input type="text" th:field="*{seance_type}"/></td>
+            </tr>
+            <tr>
+                <td>Date time:</td>
+                <td><input type="datetime-local" th:field="*{seance_datetime}" required="required"/></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Save</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

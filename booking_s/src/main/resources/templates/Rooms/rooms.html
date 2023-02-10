@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>Rooms</title>
+</head>
+<body>
+<div align="center">
+    <a href="/users">Users</a>
+    <a href="/movies">Movies</a>
+    <a href="/rooms">Rooms</a>
+    <a href="/seats">Seats</a>
+    <a href="/seances">Seances</a>
+    <a href="/reservations">Reservations</a>
+    <a href="/logout">Logout</a>
+  <h1>Room list</h1>
+   <a href="/new_room">Create New Room</a>
+  <table border="1" cellpadding="10">
+    <thead>
+    <tr>
+      <th>Room Id</th>
+      <th>Name room</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="rooms : ${listRooms}">
+      <td th:text="${rooms.id_room}">Movie ID</td>
+      <td th:text="${rooms.name_room}">Title</td>
+       <td>
+         <a th:href="@{'/edit_room/' + ${rooms.id_room}}">Edit</a>
+         <a th:href="@{'/delete_room/' + ${rooms.id_room}}">Delete</a>
+       </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>Reservations</title>
+</head>
+<body>
+<div align="center">
+    <a href="/users">Users</a>
+    <a href="/movies">Movies</a>
+    <a href="/rooms">Rooms</a>
+    <a href="/seats">Seats</a>
+    <a href="/seances">Seances</a>
+    <a href="/reservations">Reservations</a>
+    <a href="/logout">Logout</a>
+  <h1>Reservation list</h1>
+    <a href="/new_reservation">Create New Reservation</a>
+  <table border="1" cellpadding="10">
+    <thead>
+    <tr>
+      <th>ID reservation</th>
+      <th>User</th>
+      <th>Seance</th>
+      <th>Seat</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="reservations : ${listReservations}">
+      <td th:text="${reservations.id_reservation}">ID reservation</td>
+      <td th:text="${reservations.users.first_name}">ID user</td>
+      <td th:text="${reservations.seances.price}">ID test seance</td>
+      <td th:text="${reservations.seats.name}">ID seat</td>
+        <td>
+            <a th:href="@{'/edit_reservation/' + ${reservations.id_reservation}}">Edit</a>
+            <a th:href="@{'/delete_reservation/' + ${reservations.id_reservation}}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

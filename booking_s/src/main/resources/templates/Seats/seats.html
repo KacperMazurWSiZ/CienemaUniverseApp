@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <title>Seats</title>
+</head>
+<body>
+<div align="center">
+    <a href="/users">Users</a>
+    <a href="/movies">Movies</a>
+    <a href="/rooms">Rooms</a>
+    <a href="/seats">Seats</a>
+    <a href="/seances">Seances</a>
+    <a href="/reservations">Reservations</a>
+    <a href="/logout">Logout</a>
+  <h1>SeatsList</h1>
+  <a href="/new_seat">Create New Seat</a>
+  <table border="1" cellpadding="10">
+    <thead>
+    <tr>
+      <th>Seat Id</th>
+      <th>Name room</th>
+      <th>Name</th>
+      <th>Is free</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="seats : ${listSeats}">
+      <td th:text="${seats.id_seat}">Movie ID</td>
+      <td th:text="${seats.rooms.name_room}">Title</td>
+      <td th:text="${seats.name}">description</td>
+      <td th:text="${seats.is_free}">release_date</td>
+        <td>
+<!--            <a th:href="@{'/edit_seat/' + ${seats.id_seat}}">Edit</a>-->
+            <a th:href="@{'/delete_seat/' + ${seats.id_seat}}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

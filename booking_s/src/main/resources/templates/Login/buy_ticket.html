@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Zarezerwuj bilet</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container" align="center">
+    <h1 class="text-center">Movie Details</h1>
+    <div class="form-group" th:object="${seances}">
+        <table border="0" cellpadding="10" class="table table-bordered">
+            <tr>
+                <td>Movie Title:</td>
+                <td>
+                    <input type="text" th:field="*{movies.title}" class="form-control" readonly="readonly"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Room Name:</td>
+                <td>
+                    <input type="text" th:field="*{rooms.name_room}" class="form-control" readonly="readonly"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td>
+                    <input type="text" th:field="*{price}" class="form-control" readonly="readonly"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Seance Type:</td>
+                <td>
+                    <input type="text" th:field="*{seance_type}" class="form-control" readonly="readonly"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Seance datetime:</td>
+                <td>
+                    <input type="text" th:field="*{seance_datetime}" class="form-control" readonly="readonly"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <h1 class="text-center">Ticket</h1>
+    <h1 class="text-center">Welcome <span th:text="${user_name}"></span></h1>
+    <form class="form-group" action="" th:action="@{/save_ticket}" th:object="${reservations}" method="post">
+        <table class="table table-bordered">
+            <tr hidden>
+                <td>
+                     <select th:field="*{users.id_user}">
+                        <option th:value="${user_id}" th:text="${user_id}" readonly="readonly"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Seance</td>
+                <td>
+                    <select class="form-control" th:field="*{seances}">
+                        <option th:value="${seances.id_seance}" th:text="${seances.movies.title}" readonly="readonly"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Seat</td>
+                <td>
+                    <select class="form-control" th:field="*{seats}">
+                        <option th:each="seat : ${listSeats}" th:value="${seat.id_seat}" th:text="${seat.name}"  th:if="${seat.rooms.id_room} == ${seance_room} and ${seat.is_free} == true" ></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text-center">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

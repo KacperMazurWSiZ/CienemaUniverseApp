@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JpbDataSourceConfig">
+    <data-sources>
+      <data-source id="977280d2-5fe2-4f88-8c50-2c19b4ad58e2" name="cinema_universe" url="jdbc:mysql://localhost:3306/cinema_universe" driverClass="com.mysql.cj.jdbc.Driver" />
+      <data-source id="301d5882-2bc8-4582-a0ad-34bef575c60f" name="cinema_universe2" url="jdbc:mysql://localhost:3306/cinema_universe" driverClass="com.mysql.cj.jdbc.Driver" />
+    </data-sources>
+  </component>
+</project>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Orders</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div align="center" class="container">
+
+    <a href="/user_seance" class="btn btn-primary">User Seances</a>
+    <a href="/user_orders" class="btn btn-primary">Your Orders</a>
+    <a href="/logout" class="btn btn-primary">Logout</a>
+
+    <h1 class="mt-5">Your Orders</h1>
+    <table class="table mt-5">
+        <thead class="thead-light">
+        <tr>
+            <th>ID Reservation</th>
+            <th>Mail</th>
+            <th>Movie</th>
+            <th>Price</th>
+            <th>Room Name</th>
+            <th>Seat Number</th>
+            <th>Seance Date</th>
+            <th>Movie Duration</th>
+<!--            <th>Actions</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="reservations : ${listReservations}" th:if="${reservations.users.first_name} == ${user_name}">
+            <td th:text="${reservations.id_reservation}">ID Reservation</td>
+            <td th:text="${reservations.users.first_name}">First Name</td>
+            <td th:text="${reservations.seances.movies.title}">Movie Title</td>
+            <td th:text="${reservations.seances.price}">Price</td>
+            <td th:text="${reservations.seances.rooms.name_room}">Room</td>
+            <td th:text="${reservations.seats.name}">Seat</td>
+            <td th:text="${reservations.seances.seance_datetime}">Date</td>
+            <td th:text="${reservations.seances.movies.duration}">Seat</td>
+<!--            <td><button class="btn btn-primary"  th:onclick="'location.href=\'/save_to_csv\''">Save to CSV</button></td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
+
