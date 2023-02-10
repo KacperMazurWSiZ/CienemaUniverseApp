@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Cinema_Universe.iml" filepath="$PROJECT_DIR$/.idea/Cinema_Universe.iml" />
       <module fileurl="file://$PROJECT_DIR$/booking_s/cinema.iml" filepath="$PROJECT_DIR$/booking_s/cinema.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/cinema odpalilo sie xd v3.iml" filepath="$PROJECT_DIR$/.idea/cinema odpalilo sie xd v3.iml" />
     </modules>
   </component>
 </project>
