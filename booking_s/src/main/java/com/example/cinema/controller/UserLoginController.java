@@ -131,56 +131,6 @@ public class UserLoginController {
         Seats seat = serviceSeats.get(reservations.getSeats().getId_seat());
         seat.setIs_free(false);
         serviceSeats.save(seat);
-        return "redirect:/user_seance";
+        return "redirect:/user_orders";
     }
-
-//@GetMapping("/save_to_csv")
-//public void saveToCsv(HttpServletResponse response) throws IOException {
-//    List<Reservations> reservationsList = reservationService.findAll();
-//
-//    response.setContentType("text/csv");
-//    response.setHeader("Content-Disposition", "attachment; filename=\"reservations.csv\"");
-//
-//    try (PrintWriter writer = response.getWriter()) {
-//        writer.println("ID Reservation, First Name, Movie Title, Price, Room, Seat, Date, Movie Duration");
-//        for (Reservations reservation : reservationsList) {
-//            writer.println(String.format("%d, %s, %s, %f, %s, %s, %s, %d",
-//                    reservation.getId_reservation(),
-//                    reservation.getUsers().getFirst_name(),
-//                    reservation.getSeances().getMovies().getTitle(),
-//                    reservation.getSeances().getPrice(),
-//                    reservation.getSeances().getRooms().getName_room(),
-//                    reservation.getSeats().getName(),
-//                    reservation.getSeances().getSeance_datetime(),
-//                    reservation.getSeances().getMovies().getDuration()));
-//        }
-//    }
-//}
-
-//
-//@GetMapping("/save_to_csv")
-//public void saveToCsv(@RequestParam("user_name") String userName,
-//                      HttpServletResponse response) throws IOException {
-//    List<Reservations> reservationsList = reservationService.g(userName);
-//
-//    response.setContentType("text/csv");
-//    response.setHeader("Content-Disposition", "attachment; filename=\"reservations.csv\"");
-//
-//    try (PrintWriter writer = response.getWriter()) {
-//        writer.println("ID Reservation, First Name, Movie Title, Price, Room, Seat, Date, Movie Duration");
-//        for (Reservations reservation : reservationsList) {
-//            writer.println(String.format("%d, %s, %s, %f, %s, %s, %s, %d",
-//                    reservation.getId_reservation(),
-//                    reservation.getUsers().getFirst_name(),
-//                    reservation.getSeances().getMovies().getTitle(),
-//                    reservation.getSeances().getPrice(),
-//                    reservation.getSeances().getRooms().getName_room(),
-//                    reservation.getSeats().getName(),
-//                    reservation.getSeances().getSeance_datetime(),
-//                    reservation.getSeances().getMovies().getDuration()));
-//        }
-//    }
-//}
-
-
 }
